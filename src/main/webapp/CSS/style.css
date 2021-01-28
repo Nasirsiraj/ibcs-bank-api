@@ -1,0 +1,16 @@
+*, *:after, *:before{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    text-decoration: none;
+}
+
+body{
+    background-color: azure;
+
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
