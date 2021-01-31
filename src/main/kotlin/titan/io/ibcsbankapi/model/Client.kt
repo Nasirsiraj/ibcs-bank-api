@@ -15,4 +15,5 @@ class Client {
     var gender: String = ""
     var email: String = ""
     var password: String = ""
+    var balance: Long = 0
 }
