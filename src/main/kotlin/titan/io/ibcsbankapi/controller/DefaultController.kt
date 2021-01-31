@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
 
 @Controller
-@CrossOrigin(origins = arrayOf("*"), allowedHeaders = arrayOf("*"))
+@CrossOrigin(origins = ["*"], allowedHeaders = ["*"])
 class DefaultController {
     @GetMapping("/")
     fun getDefaultPage(): String{

@@ -4,5 +4,5 @@ import org.springframework.context.annotation.Configuration
 
 @Configuration
 class DefaultConfiguration {
-    // todo: make all the configure here.
+    // todo: all the configure here.
 }

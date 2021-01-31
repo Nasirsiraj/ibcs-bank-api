@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*
 import titan.io.ibcsbankapi.model.Client
 import titan.io.ibcsbankapi.service.ClientService
 
-@Controller
-@CrossOrigin(origins = arrayOf("*"), allowedHeaders = arrayOf("*"))
+@RestController
+@CrossOrigin(origins = ["*"], allowedHeaders = ["*"])
 class ClientController {
 
     @Autowired
@@ -31,7 +31,7 @@ class ClientController {
     }
     // post one client
     @PostMapping("/client")
-    fun postOneClient(@RequestBody client: Client): Client{
+    fun postOneClient(@RequestBody @NotNull client: Client): Client{
         return clientService.postOneClient(client)
     }
     // delete client by id
@@ -45,6 +45,7 @@ class ClientController {
         return clientService.deleteClientByObj(client)
     }
     // update client by obj
+    @PutMapping("/client")
     fun updateClientByObj(@RequestBody @NotNull client: Client): Client?{
         return clientService.updateClientByObj(client)
     }

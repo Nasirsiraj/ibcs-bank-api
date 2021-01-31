@@ -8,4 +8,5 @@ class IbcsBankApiApplication
 
 fun main(args: Array<String>) {
     runApplication<IbcsBankApiApplication>(*args)
+    println("Welcome to IBCS-Bank")
 }

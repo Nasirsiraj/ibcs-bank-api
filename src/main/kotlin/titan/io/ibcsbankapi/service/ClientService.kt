@@ -14,14 +14,14 @@ class ClientService {
 
     // get all client
     fun getAllClient(): MutableList<Client> {
-        return clientRepository.findAll();
+        return clientRepository.findAll()
     }
     // get client by id
-    fun getClientById(@NotNull id: Int): Client{
+    fun getClientById(@NotNull id: Int): Client?{
         return clientRepository.findById(id).orElse(null)
     }
     // post all client
-    fun postAllClient(clientList: List<Client>): MutableList<Client>{
+    fun postAllClient(@NotNull clientList: List<Client>): MutableList<Client>{
         return clientRepository.saveAll(clientList)
     }
     // post one client
@@ -30,7 +30,7 @@ class ClientService {
     }
     // delete one client by id
     fun deleteClientById(@NotNull id: Int): String{
-        val client_  = clientRepository.findById(id).orElse(null)
+        val client_: Client?  = clientRepository.findById(id).orElse(null)
 
         return if(client_ == null){
             "client not found, id: ${id}"
@@ -41,7 +41,7 @@ class ClientService {
     }
     // delete one client by obj
     fun deleteClientByObj(@NotNull client: Client): String{
-        val client_ = clientRepository.findById(client.id).orElse(null)
+        val client_: Client? = clientRepository.findById(client.id).orElse(null)
         return if(client_ == null){
             "client not found ${client.id}"
         }else{
@@ -49,7 +49,7 @@ class ClientService {
             "client deleted, id: ${client.id}"
         }
     }
-    // update on client by obj
+    // update one client by obj
     fun updateClientByObj(@NotNull client: Client): Client?{
         val client_ : Client?= clientRepository.findById(client.id).orElse(null)
         return if(client_ == null){
@@ -62,6 +62,7 @@ class ClientService {
             client_.gender = client.gender
             client_.email = client.email
             client_.password = client.password
+            client_.balance = client.balance
 
             clientRepository.save(client_)
         }

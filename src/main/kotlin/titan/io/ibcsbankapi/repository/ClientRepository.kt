@@ -6,5 +6,4 @@ import titan.io.ibcsbankapi.model.Client
 
 @Repository
 interface ClientRepository: JpaRepository<Client, Int> {
-
 }
