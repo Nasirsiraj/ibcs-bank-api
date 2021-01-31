@@ -1,6 +1,12 @@
 package titan.io.ibcsbankapi.model
 
+import javax.persistence.*
+
+@Entity
+@Table(name="client")
 class Client {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Int = 0
     var name: String = ""
     var nid: Int = 0
