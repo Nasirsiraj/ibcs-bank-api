@@ -20,6 +20,10 @@ class ClientService {
     fun getClientById(@NotNull id: Int): Client?{
         return clientRepository.findById(id).orElse(null)
     }
+    // get client by nid
+    fun getClientByNid(@NotNull nid: Int): Client?{
+        return clientRepository.findByNid(nid)
+    }
     // post all client
     fun postAllClient(@NotNull clientList: List<Client>): MutableList<Client>{
         return clientRepository.saveAll(clientList)

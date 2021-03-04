@@ -8,7 +8,7 @@ import titan.io.ibcsbankapi.model.Client
 import titan.io.ibcsbankapi.service.ClientService
 
 @RestController
-@CrossOrigin(origins = ["*"], allowedHeaders = ["*"])
+@CrossOrigin(origins = ["http://localhost:4200"], allowedHeaders = ["*"])
 class ClientController {
 
     @Autowired
@@ -23,6 +23,11 @@ class ClientController {
     @GetMapping("/client/{id}")
     fun getClientById(@PathVariable @NotNull id: Int): Client?{
         return clientService.getClientById(id)
+    }
+    // get client by nid
+    @GetMapping("/clientByNid/{nid}")
+    fun getClientByNid(@PathVariable @NotNull nid: Int): Client?{
+        return clientService.getClientByNid(nid)
     }
     // post all client
     @PostMapping("/clients")

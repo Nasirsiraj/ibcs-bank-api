@@ -6,4 +6,5 @@ import titan.io.ibcsbankapi.model.Client
 
 @Repository
 interface ClientRepository: JpaRepository<Client, Int> {
+    fun findByNid(nid: Int): Client?
 }
